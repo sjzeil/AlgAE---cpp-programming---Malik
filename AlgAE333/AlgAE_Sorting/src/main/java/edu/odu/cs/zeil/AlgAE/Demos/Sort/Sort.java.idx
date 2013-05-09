@@ -1,0 +1,39 @@
+23 Where to place p'th object?
+24 Start looking here.
+25 Move j-1 element up.
+26 Found where to put tmp.
+28 Done.
+42 Shell: Where to place i'th object?
+44 Shell: Start looking at a[j].
+45 Shell: Move j-gap element up.
+46 Shell: Found where to put tmp.
+47 Shell: Done with this element.
+48 Shell: Now decrease the gap.
+48 Shell: Done.
+109 Set up for recursive merge sort
+110 Completed recursive merge sort
+122 New call to mergeSort
+126 mergeSort: returned from 1st recursive call
+127 mergeSort: returned from 2nd recursive call
+128 mergeSort: merge completed
+148 Main merge loop: copy smaller element
+153 Copy rest of first half
+156 Copy rest of right half
+160 Copy TmpArray back
+162 Done with this merge
+170 Set up for recursive quicksort
+171 Completed recursive quicksort
+198 Cutting off quicksort
+203 Sort low, middle, high
+211 Place pivot at position high - 1
+215 Begin partitioning
+218 Increase i till a[i] >= pivot
+219 Increasing i
+220 Decrease j till a[j] <= pivot
+221 Decreasing j
+223 Exchange a[i] and a[j]
+226 Exchanged
+229 Restore pivot
+231 Recursive calls
+232 Return from 1st recursive call
+233 Return from 2nd recursive call
