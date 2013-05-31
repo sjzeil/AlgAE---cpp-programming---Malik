@@ -2,15 +2,15 @@ package edu.odu.cs.cs333.animations;
 
 
 
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Server.MenuFunction;
-import edu.odu.cs.zeil.AlgAE.Utilities.DiscreteInteger;
-import edu.odu.cs.zeil.AlgAE.Utilities.Index;
+import edu.odu.cs.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation;
+import edu.odu.cs.AlgAE.Server.Utilities.DiscreteInteger;
+import edu.odu.cs.AlgAE.Server.Utilities.Index;
 
-public class CS333ArraysAnimation extends Animation {
+public class CS333ArraysAnimation extends LocalJavaAnimation {
 
 	public CS333ArraysAnimation() {
-		super("Array Operations", true);
+		super("Array Operations");
 	}
 
 	@Override

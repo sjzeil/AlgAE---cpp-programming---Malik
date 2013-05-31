@@ -1,9 +1,10 @@
 package edu.odu.cs.cs333.animations;//!
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;//!
-import edu.odu.cs.zeil.AlgAE.Animation;//!
-import edu.odu.cs.zeil.AlgAE.Utilities.DiscreteInteger;//!
-import edu.odu.cs.zeil.AlgAE.Utilities.Index;//!
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.Utilities.DiscreteInteger;//!
+import edu.odu.cs.AlgAE.Server.Utilities.Index;//!
+
 
 public class ArrayOperations {//!
 
@@ -18,7 +19,7 @@ public class ArrayOperations {//!
 //!void addToEnd (std::string* array, int& size, std::string value)
 public void addToEnd (String[] array, DiscreteInteger size, String value)//!
 {
-   ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+   ActivationRecord arec = activate(ArrayOperations.class);//!
    arec.refParam("array", array).refParam("size", size).param("value", value).breakHere("starting addToEnd");//!
 //!   array[size] = value;
    if (size.get() >= array.length) {//!
@@ -37,7 +38,7 @@ public void addToEnd (String[] array, DiscreteInteger size, String value)//!
 public void addElement (String[] array, DiscreteInteger size,//!
 	    Index index, String value)//!
 {
-   ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+   ActivationRecord arec = activate(ArrayOperations.class);//!
    arec.refParam("array", array).refParam("size", size).param("index", index).param("value", value).breakHere("starting addElement");//!
   // Make room for the insertion
 //!  int toBeMoved = size - 1;
@@ -71,7 +72,7 @@ public void addElement (String[] array, DiscreteInteger size,//!
 //!		    std::string value)
 public Index addInOrder1 (String[] array, DiscreteInteger size, String value)//!
 {
-   ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+   ActivationRecord arec = activate(ArrayOperations.class);//!
    arec.refParam("array", array).refParam("size", size).param("value", value).breakHere("starting addInOrder");//!
   // Find where to insert
 //!  int pos = 0;
@@ -94,7 +95,7 @@ public Index addInOrder1 (String[] array, DiscreteInteger size, String value)//!
 //!		    std::string value)
 public Index addInOrder2 (String[] array, DiscreteInteger size, String value)//!
 {
-   ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+   ActivationRecord arec = activate(ArrayOperations.class);//!
    arec.refParam("array", array).refParam("size", size).param("value", value).breakHere("starting addInOrder");//!
   // Make room for the insertion
 //!  int toBeMoved = size - 1;
@@ -130,7 +131,7 @@ public Index addInOrder2 (String[] array, DiscreteInteger size, String value)//!
 //!int seqSearch(const std::string list[], int listLength, std::string searchItem)
 public Index seqSearch(String list[], int listLength, String searchItem)//!
 {
-	ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+	ActivationRecord arec = activate(ArrayOperations.class);//!
 	arec.refParam("list", list).param("listLength", listLength).param("searchItem", searchItem).breakHere("starting seqSearch");//!
 //!    int loc;
     Index loc = new Index(-1, list);//!
@@ -153,7 +154,7 @@ public Index seqSearch(String list[], int listLength, String searchItem)//!
 //!int seqOrderedSearch(const std::string list[], int listLength, std::string searchItem)
 public Index seqOrderedSearch(String list[], int listLength, String searchItem)//!
 {
-	ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+	ActivationRecord arec = activate(ArrayOperations.class);//!
 	arec.refParam("list", list).param("listLength", listLength).param("searchItem", searchItem).breakHere("starting seqOrderedSearch");//!
 //!    int loc = 0;
     Index loc = new Index(0, list);//!
@@ -183,7 +184,7 @@ public Index seqOrderedSearch(String list[], int listLength, String searchItem)/
 //!void removeElement (std::string* array, int& size, int index)
 public void removeElement (String[] array, DiscreteInteger size, Index index)//!
 {
-   ActivationRecord arec = Animation.activate(ArrayOperations.class);//!
+   ActivationRecord arec = activate(ArrayOperations.class);//!
    arec.refParam("array", array).refParam("size", size).param("index", index).breakHere("starting removeElement");//!
    if (index.get() < 0 || index.get() >= array.length) { //!
 	   arec.breakHere("index is out of bounds - program may crash");//!
