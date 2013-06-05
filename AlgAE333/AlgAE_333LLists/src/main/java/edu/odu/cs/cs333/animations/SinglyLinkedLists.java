@@ -1,17 +1,18 @@
 package edu.odu.cs.cs333.animations;//!
 
-import java.awt.Color;
-import java.util.LinkedList;
-import java.util.List;
+import java.awt.Color;//!
+import java.util.LinkedList;//!
+import java.util.List;//!
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Component;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Connection;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.CanBeRendered;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.Renderer;
-import edu.odu.cs.zeil.AlgAE.Utilities.DiscreteInteger;
-import edu.odu.cs.zeil.AlgAE.Utilities.SimpleReference;
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Component;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Connection;//!
+import edu.odu.cs.AlgAE.Server.Rendering.CanBeRendered;//!
+import edu.odu.cs.AlgAE.Server.Rendering.Renderer;//!
+import edu.odu.cs.AlgAE.Server.Utilities.DiscreteInteger;//!
+import edu.odu.cs.AlgAE.Server.Utilities.SimpleReference;//!
+
 
 public class SinglyLinkedLists {//!
 
@@ -85,7 +86,7 @@ public void traverse ()//!
 // Traverse a linked list from beginning to end
 // 
 {
-	ActivationRecord arec = Animation.activate(getClass());//!
+	ActivationRecord arec = activate(getClass());//!
 	arec.refVar("head", head).breakHere("starting traversal");//!
 	nodeType current = head;//!    nodeType* current = head;
 	arec.refVar("current", current).breakHere("start at the head");//!
@@ -110,7 +111,7 @@ public void insert (nodeType p, int value)//!
 // Insert value after node p
 //
 {
-	ActivationRecord arec = Animation.activate(getClass());//!
+	ActivationRecord arec = activate(getClass());//!
 	arec.refParam("p", p).param("value", value).refVar("head", head).breakHere("starting insertion");//!
 	nodeType newNode = new nodeType();//!    nodeType *newNode = new nodeType;
 	arec.refVar("newNode", newNode).breakHere("allocated new node");//!
@@ -122,7 +123,6 @@ public void insert (nodeType p, int value)//!
 	arec.breakHere("make p point to the new node");//!
 	arec.breakHere("Insertion has been completed");//!
 	arec.breakHere("Trace the next links and see for yourself that the new node was inserted right after p.");//!
-	arec.breakHere("Trace the next links and see for yourself that the new node was inserted right after p.");//!
 }
 
 public void remove (nodeType p)//!
@@ -131,7 +131,7 @@ public void remove (nodeType p)//!
 //Remove value after node p
 //
 {
-	ActivationRecord arec = Animation.activate(getClass());//!
+	ActivationRecord arec = activate(getClass());//!
 	arec.refParam("p", p).refVar("head", head).breakHere("starting deletion");//!
 	nodeType q = p.link;//!    nodeType *q = p->link;
 	arec.refVar("q", q).breakHere("q is the node that will be removed");//!
@@ -139,7 +139,6 @@ public void remove (nodeType p)//!
 	arec.breakHere("Changed p's link to 'bypass' q");//!
 	q = null;//!    delete q;
 	arec.breakHere("reclaimed the memory used by node q");//!
-	arec.breakHere("Removal is now completed");//!
 	arec.breakHere("Removal is now completed");//!
 }
         

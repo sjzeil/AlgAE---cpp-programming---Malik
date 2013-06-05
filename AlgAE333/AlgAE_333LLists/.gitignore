@@ -1,0 +1,7 @@
+/bin
+/target
+/ivy
+/ivy/*
+/lib
+/lib/*
+/ant.log
