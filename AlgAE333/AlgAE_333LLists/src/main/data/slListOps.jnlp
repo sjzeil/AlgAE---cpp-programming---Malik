@@ -2,7 +2,7 @@
 <jnlp
     spec="6.0+" 
     codebase="@CODEBASE@" 
-    href="arrayOps.jnlp"
+    href="slListOps.jnlp"
 >
     <information>
         <title>CS333 Singly Linked List Operations</title>
