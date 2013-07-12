@@ -1,4 +1,4 @@
-<project name="AlgAE 361 Trees" 
+<project name="AlgAE 333 Sorting" 
 	 default="package" basedir="." 
 	 xmlns:ivy="antlib:org.apache.ivy.ant"
 	 xmlns:jacoco="antlib:org.jacoco.ant">
@@ -9,7 +9,7 @@
     AlgAE (Algorithm Animation Engine): CS361 Trees
   </description>
 
-  <property name="projectName" value="algae-361trees" />
+  <property name="projectName" value="algae-333sorting" />
   <property name="version" value="4.0-SNAPSHOT"/>
 
   <tstamp>
@@ -39,7 +39,7 @@
 
   <property name="deploy.dest" location="/home/zeil/secure_html/AlgAE/${projectName}"/>
   <property name="deploy.url" value="https://secweb.cs.odu.edu/~zeil/AlgAE/${projectName}"/>
-  <property name="main.class" value="edu.odu.cs.cs361.animations.TreeTraversals"/>
+  <property name="main.class" value="edu.odu.cs.cs333.animations.CS333SortingAnimation"/>
 	
   <property name="keystore" value="myTestKey"/>
 

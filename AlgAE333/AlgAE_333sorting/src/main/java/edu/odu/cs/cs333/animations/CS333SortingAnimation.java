@@ -5,17 +5,18 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Server.MenuFunction;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Component;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Connection;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.CanBeRendered;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.Renderer;
+import edu.odu.cs.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation;
+import edu.odu.cs.AlgAE.Server.MemoryModel.Component;
+import edu.odu.cs.AlgAE.Server.MemoryModel.Connection;
+import edu.odu.cs.AlgAE.Server.Rendering.CanBeRendered;
+import edu.odu.cs.AlgAE.Server.Rendering.Renderer;
 
-public class CS333SortingAnimation extends Animation {
+
+public class CS333SortingAnimation extends LocalJavaAnimation {
 
 	public CS333SortingAnimation() {
-		super("Sorting Algorithms", true);
+		super("Sorting Algorithms");
 	}
 
 	@Override
@@ -88,6 +89,13 @@ public class CS333SortingAnimation extends Animation {
 			}
 		});
 
+		register ("Generate an ordered array", new MenuFunction() {
+			@Override
+			public void selected() {
+				orderedArrayGenerated();
+			}
+		});
+
 		register ("Generate a reversed array", new MenuFunction() {
 			@Override
 			public void selected() {
@@ -113,6 +121,15 @@ public class CS333SortingAnimation extends Animation {
 			@Override
 			public void selected() {
 				Sorting.insertionSort (array, array.length);
+			}
+		});
+		
+		register ("Binary Search", new MenuFunction() {
+			@Override
+			public void selected() {
+				String value = promptForInput("Value to search for?", "\\d+");
+				int v = Integer.parseInt(value);
+				int pos = Sorting.binarySearch (array, array.length, v);
 			}
 		});
 
@@ -156,6 +173,24 @@ public class CS333SortingAnimation extends Animation {
 		
 	}
 
+	public void orderedArrayGenerated()
+	{
+		String value = promptForInput("How many elements?", "\\d+");
+		int n = Integer.parseInt(value);
+		generateOrderedArray(n);
+	}
+
+	public void generateOrderedArray(int n)
+	{
+		if (n != array.length) {
+			array = new int[n];
+		}
+		array[0] = (int)(3.0 * Math.random());  
+		for (int i = 1; i < n; ++i) {
+			array[i] = array[i-1] + (int)(5.0 * Math.random());
+		}
+		
+	}
 	
 	
 	

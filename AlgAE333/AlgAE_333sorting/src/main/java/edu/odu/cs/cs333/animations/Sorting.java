@@ -1,8 +1,9 @@
 package edu.odu.cs.cs333.animations;//!
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;//!
-import edu.odu.cs.zeil.AlgAE.Animation;//!
-import edu.odu.cs.zeil.AlgAE.Utilities.Index;//!
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.Utilities.Index;//!
+
 
 public class Sorting {//!
 
@@ -15,7 +16,7 @@ public class Sorting {//!
 public static//!
 	void bubbleSort(int list[], int length)
 	{
-    ActivationRecord arec = Animation.activate(Sorting.class);//!
+    ActivationRecord arec = activate(Sorting.class);//!
     arec.refParam("list", null).param("length", length);//!
     arec.breakHere("starting bubble sort");//!
 	    int temp;
@@ -53,7 +54,7 @@ public static//!
 public static//!
 	void selectionSort(int list[], int length)
 	{
-    ActivationRecord arec = Animation.activate(Sorting.class);//!
+    ActivationRecord arec = activate(Sorting.class);//!
     arec.refParam("list", null).param("length", length);//!
     arec.breakHere("starting selection sort");//!
 	    int index;
@@ -101,7 +102,7 @@ public static//!
 public static//!
 	void insertionSort (int list[], int listLength)
 	{
-	    ActivationRecord arec = Animation.activate(Sorting.class);//!
+	    ActivationRecord arec = activate(Sorting.class);//!
 	    arec.refParam("list", null).param("listLength", listLength);//!
 	    arec.breakHere("starting insertion sort");//!
 		int firstOutOfOrder, location;
@@ -139,6 +140,61 @@ public static//!
 		arec.breakHere("Completed insertion sort");//!
 	}
 	
+    public static//!
+    int binarySearch(int list[], int listLength, int searchItem)
+	{
+    	ActivationRecord arec = activate(Sorting.class);//!
+	    arec.refParam("list", null).param("listLength", listLength).param("searchItem", searchItem);//!
+	    arec.breakHere("starting binary search");//!
+		
+	    int first = 0;
+	    int last = listLength - 1;
+	    int mid;
+
+	    boolean found = false;mid = 0;//!	    bool found = false;
+	    Index firstIndex = new Index(first, list);//!
+	    Index lastIndex = new Index(last, list);//!
+	    Index midIndex = new Index(0, list);//!
+	    arec.var("first", firstIndex).var("last", lastIndex).var("mid",midIndex).var("found",found);//!
+	    arec.breakHere("about to enter loop");//!
+	    while (first <= last && !found)
+	    {
+	        mid = (first + last) / 2;
+	        midIndex.set(mid);//!
+	        arec.breakHere("computed midpoint");//!
+		    
+	        if (list[mid] == searchItem)
+	        {//!
+	        	arec.breakHere("Found it!");//!
+	            found = true;
+	        }//!
+	        else 
+	        {arec.breakHere("Are we high or low?");//!
+	            if (list[mid] > searchItem)
+	            {arec.breakHere("Too high. Look lower.");//!
+	                last = mid - 1;
+	                lastIndex.set(last);
+	            }//!
+	            else
+	            {arec.breakHere("Too low. Look higher.");//!
+	                first = mid + 1;
+	                firstIndex.set(first);//!
+	            }//!
+	            arec.breakHere("Ready to try again."); //!
+	        }//!
+	    }
+	    
+	    arec.breakHere("Exited the loop. Did we find it?");//!
+	    if (found) 
+	    {arec.out().println ("binarySearch returned " + mid);//!
+	        return mid;
+	    }//!
+	    else
+	    {arec.out().println ("binarySearch returned -1");//!
+	        return -1;
+	    }//!
+	}
+
         
         
 }//!
