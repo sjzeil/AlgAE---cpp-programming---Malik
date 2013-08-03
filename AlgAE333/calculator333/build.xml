@@ -6,10 +6,10 @@
   <record name="ant.log" action="start" append="false" />
 	
   <description>
-    AlgAE (Algorithm Animation Engine): CS333 RPN calculator
+    AlgAE (Algorithm Animation Engine): CS333 Recursive calculator
   </description>
 
-  <property name="projectName" value="algae-333rpnCalculator" />
+  <property name="projectName" value="algae-333Calculator" />
   <property name="version" value="4.0-SNAPSHOT"/>
 
   <tstamp>

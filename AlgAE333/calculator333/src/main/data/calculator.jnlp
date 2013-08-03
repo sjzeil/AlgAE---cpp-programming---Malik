@@ -5,11 +5,11 @@
     href="calculator.jnlp"
 >
     <information>
-        <title>CS333 RPN Calculator</title>
+        <title>CS333 Recursive Calculator</title>
         <vendor>ODU CS 333</vendor>
         <offline-allowed/>
 	    <homepage href="http://www.cs.odu.edu/~zeil/algae.html"/>
-	    <description>RPN Calculator</description>
+	    <description>Recursive Calculator</description>
     </information>
     <resources>
         <!-- Application Resources -->
@@ -17,7 +17,7 @@
         <jar href="@JAR@"/>
     </resources>
     <application-desc
-         name="CS333 RPN Calculator"
+         name="CS333 Recursive Calculator"
          main-class="@MAINCLASS@"
          width="600"
          height="400">
