@@ -1,15 +1,15 @@
 package edu.odu.cs.cs333.animations;//!
 
-import java.awt.Color;
-import java.util.LinkedList;
-import java.util.List;
+import java.awt.Color;//!
+import java.util.LinkedList;//!
+import java.util.List;//!
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Component;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Connection;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.CanBeRendered;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.Renderer;
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Component;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Connection;//!
+import edu.odu.cs.AlgAE.Server.Rendering.CanBeRendered;//!
+import edu.odu.cs.AlgAE.Server.Rendering.Renderer;//!
 
 //!
 
@@ -61,7 +61,7 @@ public String getValue(BinaryTreeNode obj) {//!
 	
 public void preOrder (BinaryTreeNode t)//!void preOrder (BinaryTreeNode* t)
 {
-   ActivationRecord arec = Animation.activate(getClass());//!
+   ActivationRecord arec = activate(getClass());//!
    if (t != null) arec.highlight(t);//!
    arec.refParam("t", t).breakHere("entered preOrder()");//!
    if (t != null)//!  if (t != 0)
@@ -78,7 +78,7 @@ public void preOrder (BinaryTreeNode t)//!void preOrder (BinaryTreeNode* t)
 	
 public void postOrder (BinaryTreeNode t)//!void postOrder (BinaryTreeNode* t)
 {
-	   ActivationRecord arec = Animation.activate(getClass());//!
+	   ActivationRecord arec = activate(getClass());//!
 	   if (t != null) arec.highlight(t);//!
 	   arec.refParam("t", t).breakHere("entered postOrder()");//!
   if (t != null)//!  if (t != 0)
@@ -96,7 +96,7 @@ public void postOrder (BinaryTreeNode t)//!void postOrder (BinaryTreeNode* t)
 	
 public void inOrder (BinaryTreeNode t)//!void inOrder (BinaryTreeNode* t)
 {
-	   ActivationRecord arec = Animation.activate(getClass()	);//!
+	   ActivationRecord arec = activate(getClass()	);//!
 	   if (t != null) arec.highlight(t);//!
 	   arec.refParam("t", t).breakHere("entered inOrder()");//!
   if (t != null)//!  if (t != 0)

@@ -3,13 +3,14 @@ package edu.odu.cs.cs333.animations;
 
 import java.util.Random;
 
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.MenuFunction;//!
+import edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation;//!
 
-public class BST_Ops extends Animation {
+
+public class BST_Ops extends LocalJavaAnimation {
 
 	public BST_Ops() {
-		super("Binary Search Trees", true);
+		super("Binary Search Trees");
 	}
 
 	@Override

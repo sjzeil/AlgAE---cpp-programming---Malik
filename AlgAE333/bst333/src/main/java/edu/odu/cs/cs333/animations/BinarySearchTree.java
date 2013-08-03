@@ -4,13 +4,14 @@ import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Component;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Connection;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.CanBeRendered;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.Renderer;
-import edu.odu.cs.zeil.AlgAE.Utilities.SimpleReference;
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Component;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Connection;//!
+import edu.odu.cs.AlgAE.Server.Rendering.CanBeRendered;//!
+import edu.odu.cs.AlgAE.Server.Rendering.Renderer;//!
+import edu.odu.cs.AlgAE.Server.Utilities.SimpleReference;//!
+
 
 //!
 
@@ -42,7 +43,7 @@ public class BinarySearchTree implements CanBeRendered<BinarySearchTree>, Render
 //!template <class T> 
 public node find (int element)//!node<T>* BinarySearchTree<T>::find (const T& element) const
 { 
-	  ActivationRecord arec = Animation.activate(this);//!
+	  ActivationRecord arec = activate(this);//!
 	  arec.param("element",element).breakHere("search");//!
 	  if (root != null) {//!   if (root != 0)
 		  arec.breakHere("search non-empty tree");//!
@@ -58,7 +59,7 @@ public node find (int element)//!node<T>* BinarySearchTree<T>::find (const T& el
 //!template <class T> 
 public void insert (int element)//!void BinarySearchTree<T>::insert (const T& element)
 { 
-	  ActivationRecord arec = Animation.activate(this);//!
+	  ActivationRecord arec = activate(this);//!
 	  arec.param("element",element).breakHere("insert");//!
 	  if (root != null) {//!   if (root != 0)
 		  arec.breakHere("insert into non-empty tree");//!

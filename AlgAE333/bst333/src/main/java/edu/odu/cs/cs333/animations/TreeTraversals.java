@@ -1,13 +1,14 @@
 package edu.odu.cs.cs333.animations;
 
 
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation;
 
-public class TreeTraversals extends Animation {
+
+public class TreeTraversals extends LocalJavaAnimation {
 
 	public TreeTraversals() {
-		super("Tree Traversals", true);
+		super("Tree Traversals");
 	}
 
 	@Override
@@ -46,7 +47,8 @@ public class TreeTraversals extends Animation {
 			
 		});
 		
-		register("post-order traversal", new MenuFunction() {
+		register("post-order traversal", 
+		  new MenuFunction() {
 
 			@Override
 			public void selected() {

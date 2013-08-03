@@ -4,12 +4,12 @@ import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Component;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Connection;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.CanBeRendered;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.Renderer;
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Component;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Connection;//!
+import edu.odu.cs.AlgAE.Server.Rendering.CanBeRendered;//!
+import edu.odu.cs.AlgAE.Server.Rendering.Renderer;//!
 
 //!
 
@@ -42,7 +42,7 @@ public class node implements CanBeRendered<node>, Renderer<node> {//!
 //!template <class T> 
 public node find (int element)//!node<T>* node::find (const T& element)
 { 
-	ActivationRecord arec = Animation.activate(this);//!
+	ActivationRecord arec = activate(this);//!
 	arec.highlight(this);//!
 	arec.param("element",element).breakHere("find here or somewhere below");//!
 	if (element < value)
@@ -61,7 +61,7 @@ public node find (int element)//!node<T>* node::find (const T& element)
 //!template <class T> 
 public void insert (int element)//!void node<T>::insert (const T& element)
 { 
-	  ActivationRecord arec = Animation.activate(this);//!
+	  ActivationRecord arec = activate(this);//!
 	  arec.highlight(this);//!
 	  arec.param("element",element).breakHere("insert somewhere here or below");//!
 	  if (element < value) 

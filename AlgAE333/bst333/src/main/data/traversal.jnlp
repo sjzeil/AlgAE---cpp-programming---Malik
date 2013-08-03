@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp
+    spec="6.0+" 
+    codebase="@CODEBASE@" 
+    href="traversal.jnlp"
+>
+    <information>
+        <title>CS333 Tree Traversal</title>
+        <vendor>ODU CS 333</vendor>
+        <offline-allowed/>
+	    <homepage href="http://www.cs.odu.edu/~zeil/algae.html"/>
+	    <description>Tree Traversal demo</description>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.7+"/>
+        <jar href="@JAR@"/>
+    </resources>
+    <application-desc
+         name="CS333 Tree Traversal"
+         main-class="edu.odu.cs.cs333.animations.TreeTraversals"
+         width="600"
+         height="400">
+     </application-desc>
+</jnlp>
