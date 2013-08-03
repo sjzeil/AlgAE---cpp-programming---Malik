@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp
+    spec="6.0+" 
+    codebase="@CODEBASE@" 
+    href="calculator.jnlp"
+>
+    <information>
+        <title>CS333 RPN Calculator</title>
+        <vendor>ODU CS 333</vendor>
+        <offline-allowed/>
+	    <homepage href="http://www.cs.odu.edu/~zeil/algae.html"/>
+	    <description>RPN Calculator</description>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.7+"/>
+        <jar href="@JAR@"/>
+    </resources>
+    <application-desc
+         name="CS333 RPN Calculator"
+         main-class="@MAINCLASS@"
+         width="600"
+         height="400">
+     </application-desc>
+</jnlp>

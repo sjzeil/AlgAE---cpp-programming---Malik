@@ -1,16 +1,16 @@
 package edu.odu.cs.cs333.animations;//!
 
-import java.awt.Color;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.awt.Color;//!
+import java.util.LinkedList;//!
+import java.util.List;//!
+import java.util.Scanner;//!
 
-import edu.odu.cs.zeil.AlgAE.ActivationRecord;
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Component;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Connection;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.CanBeRendered;
-import edu.odu.cs.zeil.AlgAE.Snapshot.Rendering.Renderer;
+import static edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation.activate;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.ActivationRecord;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Component;//!
+import edu.odu.cs.AlgAE.Server.MemoryModel.Connection;//!
+import edu.odu.cs.AlgAE.Server.Rendering.CanBeRendered;//!
+import edu.odu.cs.AlgAE.Server.Rendering.Renderer;//!
 
 //!
 
@@ -70,7 +70,7 @@ public class Calculator {//!
 
 double expression (RootPtr input)//!double expression (NodePtr& input)
 {
-  ActivationRecord arec = Animation.activate(getClass());//!
+  ActivationRecord arec = activate(getClass());//!
   arec.refParam("input", input.p).breakHere("entered expression()");//!
   double sum = product(input);
   arec.var("sum", sum);//!
@@ -100,7 +100,7 @@ double expression (RootPtr input)//!double expression (NodePtr& input)
 
 double product (RootPtr input)//!double product (NodePtr& input)
 {
-  ActivationRecord arec = Animation.activate(getClass());//!
+  ActivationRecord arec = activate(getClass());//!
   arec.refParam("input", input.p).breakHere("entered product()");//!
   double result = term(input);
   arec.var("result", result).breakHere("product of 1st term");//!
@@ -128,7 +128,7 @@ double product (RootPtr input)//!double product (NodePtr& input)
 
 double term (RootPtr input)//!double term (NodePtr& input)
 {
-  ActivationRecord arec = Animation.activate(getClass());//!
+  ActivationRecord arec = activate(getClass());//!
   arec.refParam("input", input.p).breakHere("entered term()");//!
   if (input.p.data.equals("("))//!  if (input->data == "(")
     {
@@ -157,7 +157,7 @@ double term (RootPtr input)//!double term (NodePtr& input)
 
 double evaluate (NodePtr tokens)//!double evaluate (LListHeader<string>& tokens)
 {
-  ActivationRecord arec = Animation.activate(getClass());//!
+  ActivationRecord arec = activate(getClass());//!
   NodePtr input = tokens;//!  LListNode<string>* input = tokens.first;
   arec.refParam("tokens", tokens).breakHere("start by calling expression");//!
   return (expression(new RootPtr(input)));//!  return (expression(tokens));
@@ -167,7 +167,7 @@ double evaluate (NodePtr tokens)//!double evaluate (LListHeader<string>& tokens)
 
 void calculator(String line)
 {
-	ActivationRecord arec = Animation.activate(getClass());//!
+	ActivationRecord arec = activate(getClass());//!
 //!  LListHeader<string> tokens;
 //!  string token;
 //!  while (cin >> token)

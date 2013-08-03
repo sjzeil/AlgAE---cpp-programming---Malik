@@ -1,13 +1,19 @@
 package edu.odu.cs.cs333.animations;
 
 
-import edu.odu.cs.zeil.AlgAE.Animation;
-import edu.odu.cs.zeil.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.MenuFunction;
+import edu.odu.cs.AlgAE.Server.Animations.LocalJavaAnimation;
+//!
+//!
+//!
+//!
+//!
+//!
 
-public class RecursiveCalculator extends Animation {
+public class RecursiveCalculator extends LocalJavaAnimation {
 
 	public RecursiveCalculator() {
-		super("Recursive Calculator", true);
+		super("Recursive Calculator");
 	}
 
 	@Override
@@ -26,7 +32,8 @@ public class RecursiveCalculator extends Animation {
 		
 		
 		
-		register("calculator", new MenuFunction() {
+		register("calculator", 
+				new MenuFunction() {
 
 			@Override
 			public void selected() {
