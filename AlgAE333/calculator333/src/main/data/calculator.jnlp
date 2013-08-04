@@ -20,6 +20,5 @@
          name="CS333 Recursive Calculator"
          main-class="@MAINCLASS@"
          width="600"
-         height="400">
-     </application-desc>
+         height="400"/>
 </jnlp>

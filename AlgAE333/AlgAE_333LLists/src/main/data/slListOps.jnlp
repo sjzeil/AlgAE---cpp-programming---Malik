@@ -20,6 +20,5 @@
          name="CS333 Singly Linked List Operations"
          main-class="@MAINCLASS@"
          width="600"
-         height="400">
-     </application-desc>
+         height="400"/>
 </jnlp>

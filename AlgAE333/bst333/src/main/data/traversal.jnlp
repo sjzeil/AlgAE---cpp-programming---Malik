@@ -20,6 +20,5 @@
          name="CS333 Tree Traversal"
          main-class="edu.odu.cs.cs333.animations.TreeTraversals"
          width="600"
-         height="400">
-     </application-desc>
+         height="400"/>
 </jnlp>

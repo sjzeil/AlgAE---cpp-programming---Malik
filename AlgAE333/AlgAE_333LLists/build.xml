@@ -39,7 +39,7 @@
 
   <property name="deploy.dest" location="/home/zeil/secure_html/AlgAE/${projectName}"/>
   <property name="deploy.url" value="https://secweb.cs.odu.edu/~zeil/AlgAE/${projectName}"/>
-  <property name="main.class" value="edu.odu.cs.cs333.animations.BasicListOps/>
+  <property name="main.class" value="edu.odu.cs.cs333.animations.BasicListOps"/>
 	
   <property name="keystore" value="myTestKey"/>
 
