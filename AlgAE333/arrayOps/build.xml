@@ -1,0 +1,16 @@
+<project name="array operations"
+	 default="build" basedir="." >
+
+	
+  <description>
+    Array operations for C++ Programming, Malik
+  </description>
+
+
+  <property name="projectName" value="algae-cppmalik-arrayops"/>
+  <property name="mainClassName" value="edu.odu.cs.cs333.animations.CS333ArraysAnimation" />
+
+  <import file="../commonBuild.xml"/>
+
+
+</project>

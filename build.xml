@@ -1,0 +1,80 @@
+<project name="AlgAE C++ Malik top-level" 
+	 default="build" basedir=".">
+  
+  <record name="ant.log" action="start" append="false" />
+  
+  <description>
+    Animations of code for a C++ programming II class,
+  	based primarily on Malik, C++ Programming, 5e
+  </description>
+
+	  <!-- Deployment and signing properties are kept outside of the project
+	       because we don't want these as part of the version-control
+	       repository. 
+
+	       These properties are:
+	          ${superProjectName}.deploy.dir= deployment directory
+	          ${superProjectName}.deploy.server= ssh server where project 
+	                                             is deployed (if empty, simple copy
+	                                             is performed instead)
+	          ${superProjectName}.deploy.user= user name for ssh server
+	          ${superProjectName}.deploy.user= password for ssh server (will promot if missing)
+
+	          ${superProjectName}.keystore.file=absolute path to code signing key
+	          ${superProjectName}.keystore.alias=alias to use for code signing
+	          ${superProjectName}.keystore.password=password to use for code signing (will prompt if missing)
+	  -->
+  <property file="${user.home}/.ant-global.properties"/>
+
+  <property name="projectName" value="algae" />
+  <property file="shared.properties"/>
+  
+  <property name="configuration" value="${os.name}" />
+  
+  <!-- === Directory Setup === -->
+  
+  <property name="reports.dir" location="AlgAE/reports/" />	
+  
+  
+  <target name="build" description="build all subprojects">
+  	<subant target="build" inheritall="false">
+  		<fileset dir="." includes="*/*/build.xml"/>
+  	</subant>
+  </target>
+  
+  <target name="signing-password" if="algae-333-malik.keystore.file" 
+                                  unless="algae-333-malik.keystore.password">
+    <input message="Please enter password for keystore ${algae-333-malik.keystore.file}:" 
+           addproperty="algae-333-malik.keystore.password" />
+  </target>
+	
+	
+  <target name="package" depends="signing-password" description="build and package all subprojects">
+	 <subant target="package" inheritall="false">
+	  	<fileset dir="." includes="*/*/build.xml"/>
+  		<property name="algae-333-malik.keystore.password" value="${algae-333-malik.keystore.password}"/>
+	 </subant>
+  </target>
+  
+  <target name="deploy-password" if="algae-333-malik.deploy.server" 
+		                         unless="algae-333-malik.deploy.password">
+		    <input message="Please enter password for server ${algae-333-malik.deploy.server}:" 
+		           addproperty="algae-333-malik.deploy.password" />
+  </target>
+
+  <target name="deploy" depends="signing-password,deploy-password" description="package and deploy all subprojects">
+	<subant target="deploy" inheritall="false">
+		<fileset dir="." includes="*/*/build.xml"/>
+  		<property name="algae-333-malik.keystore.password" value="${algae-333-malik.keystore.password}"/>
+  	  	<property name="algae-333-malik.deploy.password" value="${algae-333-malik.deploy.password}"/>
+	</subant>
+  </target>
+
+	<target name="clean" description="clean all subprojects">
+	 <subant target="clean" inheritall="false">
+	  	<fileset dir="." includes="*/*/build.xml"/>
+	 </subant>
+  </target>
+  
+  
+</project>
