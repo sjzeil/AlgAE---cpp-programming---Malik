@@ -1,0 +1,16 @@
+<project name="singly linked list operations"
+	 default="build" basedir="." >
+
+	
+  <description>
+    Singly linked List operations for C++
+  </description>
+
+
+  <property name="projectName" value="algae-cppmalik-sllists"/>
+  <property name="mainClassName" value="edu.odu.cs.cs333.animations.BasicListOps" />
+
+  <import file="../commonBuild.xml"/>
+
+
+</project>

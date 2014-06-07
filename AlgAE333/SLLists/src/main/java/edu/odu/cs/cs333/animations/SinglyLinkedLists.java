@@ -102,7 +102,10 @@ public void traverse ()//!
 	}
 	arec.breakHere("Exited loop after reaching end of list");//!
 	arec.out().println();//!    cout << endl;
-}
+	arec.breakHere("Exited loop after reaching end of list");//!
+	arec.breakHere("Exited loop after reaching end of list");//!
+	arec.breakHere("Exited loop after reaching end of list");//!
+	}
 
 
 public void insert (nodeType p, int value)//!
@@ -113,6 +116,8 @@ public void insert (nodeType p, int value)//!
 {
 	ActivationRecord arec = activate(getClass());//!
 	arec.refParam("p", p).param("value", value).refVar("head", head).breakHere("starting insertion");//!
+	arec.breakHere("Ready to add a new value after node p");//!
+	arec.breakHere("Ready to add a new value after node p");//!
 	nodeType newNode = new nodeType();//!    nodeType *newNode = new nodeType;
 	arec.refVar("newNode", newNode).breakHere("allocated new node");//!
 	newNode.info.set(value);//!    newNode->info = value;
@@ -122,6 +127,8 @@ public void insert (nodeType p, int value)//!
 	p.link = newNode;//!    p->link = newNode;
 	arec.breakHere("make p point to the new node");//!
 	arec.breakHere("Insertion has been completed");//!
+	arec.breakHere("Trace the next links and see for yourself that the new node was inserted right after p.");//!
+	newNode = null;//!
 	arec.breakHere("Trace the next links and see for yourself that the new node was inserted right after p.");//!
 }
 
@@ -133,12 +140,16 @@ public void remove (nodeType p)//!
 {
 	ActivationRecord arec = activate(getClass());//!
 	arec.refParam("p", p).refVar("head", head).breakHere("starting deletion");//!
+	arec.breakHere("Ready to remove tne node after node p");//!
+	arec.breakHere("Ready to remove tne node after node p");//!
 	nodeType q = p.link;//!    nodeType *q = p->link;
 	arec.refVar("q", q).breakHere("q is the node that will be removed");//!
 	p.link = q.link;//!    p->link = q->link;
 	arec.breakHere("Changed p's link to 'bypass' q");//!
 	q = null;//!    delete q;
 	arec.breakHere("reclaimed the memory used by node q");//!
+	arec.breakHere("Removal is now completed");//!
+	arec.breakHere("Removal is now completed");//!
 	arec.breakHere("Removal is now completed");//!
 }
         
